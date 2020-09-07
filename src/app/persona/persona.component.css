@@ -1,0 +1,51 @@
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: left;
+}
+  
+  form {
+    padding: 1em;
+    background: #cdd4d6; 
+    border: 1px solid #c584c0;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  form button {
+    background: rgb(223, 169, 169);
+    padding: 0.5em;
+   }
+  form button:hover {
+    background: rgb(196, 107, 159);
+  }
+    
+ input {
+    margin-bottom: 0.5rem;
+    display: block;
+    padding: 10px;
+  } 
+
+
+/*#total{
+  width: 60%;
+  padding: 5em;
+  margin-top: 0.5rem;
+}
+.datosPersona{
+  float: left;
+  border: 1px solid #c584c0;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#muestreo{
+  float: right;
+}*/

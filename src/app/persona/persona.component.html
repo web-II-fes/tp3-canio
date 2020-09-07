@@ -1,0 +1,39 @@
+<h1>Formulario Clientes</h1>
+
+<form [formGroup]='personaForm'>
+    <div id="total">
+    <div class="datosPersona">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+                <input matInput type="text" formControlName="nombre">          
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Apellido</mat-label>
+                <input matInput type="text" formControlName="apellido">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Edad</mat-label>
+            <input matInput type="int" formControlName="edad">
+        </mat-form-field>
+
+       
+    </div>
+    
+    <button mat-raised-button (click)="subir()">Enviar</button>
+
+
+    <div id= "muestreo">
+        <div *ngFor = "let persona of personas">
+            <p>Nombre y apellido: {{persona.nombre}} {{persona.apellido}}</p>
+            <p>Edad: {{persona.edad}}</p>
+            <button mat-raised-button color="primary" (click)="editarPersona(persona)">Editar</button>
+            <button mat-raised-button color="primary" (click)="borrarPersona(persona)">Eliminar</button>
+        </div>
+    </div>
+
+</div>
+    
+</form>
