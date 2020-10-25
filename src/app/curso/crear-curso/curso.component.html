@@ -1,0 +1,33 @@
+<form [formGroup]='cursoForm'>
+    <h1>Formulario Curso</h1>
+    <div class="datosCurso">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+                <input matInput type="text" formControlName="nombre">          
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Profesor</mat-label>
+                <input matInput type="text" formControlName="profesor">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Año</mat-label>
+            <input matInput type="int" formControlName="anio">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Estado</mat-label>
+            <mat-select matNativeControl required formControlName="estado">
+              <mat-option value="activo">Activo</mat-option>
+              <mat-option value="no activo">No Activo</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+       </div>
+    
+    <button mat-raised-button color="primary" (click)="submit()">Enviar</button>
+
+    
+</form>

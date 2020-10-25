@@ -1,0 +1,88 @@
+table{
+    margin: 2em 5em;
+    width: 85%;
+    box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+    text-align: center;
+    
+ }
+
+table th{
+    text-align: center;
+    background-color: #e08b8b;
+    font-size: 20px;
+    font-family: 'Swistblnk Moalang Melintang';
+}
+
+td:hover{
+    
+    background:#acd2d3;
+}
+
+.mostrarT{
+    border-top-left-radius: 400px 200px;
+}
+
+  h1{
+    font-family: 'Swistblnk Moalang Melintang';
+    text-align: center;
+    padding: 3%;
+    font-size: 250%;
+  }
+
+  #container{
+    position:relative;
+    top:5px;
+    height:600px;
+    width:800px;
+    background:url('https://i.imgur.com/3eP9Z4O.png') center no-repeat;
+    background-size:cover;
+    margin-left:auto;
+    margin-right:auto; 
+    border:#fff 15px solid;
+    border-radius: 3%;
+  }
+  
+
+  .crear{
+    height:50px;
+    width:15%;
+    border-radius:3px;
+    size: 30px;
+    border:rgba(0,0,0,.3) 0px solid;
+    box-sizing:border-box;
+    background:#dbd9e2;
+    color:rgb(136, 36, 83);
+    font-weight:bold;
+    font-size: 10pt;
+    cursor:pointer;
+    margin-top:1%;
+    margin-left: 5%;
+  }
+  
+  .crear:hover{
+    background:#acd2d3;
+    
+  }
+
+  button{
+    height:35px;
+    width:15%;
+    border-radius:3px;
+    size: 30px;
+    border:rgba(0,0,0,.3) 0px solid;
+    box-sizing:border-box;
+    background:#dbd9e2;
+    color:rgb(136, 36, 83);
+    font-weight:bold;
+    font-size: 10pt;
+    cursor:pointer;
+    margin-top: 2%;
+    margin-left: 5%;
+  }
+  
+  .button:hover{
+    background:#acd2d3;
+    
+  }
+
+    

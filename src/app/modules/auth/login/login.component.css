@@ -1,0 +1,105 @@
+*{  
+  margin:0;
+  padding:0;
+  display: block;
+}
+
+h1{
+  font-family: 'Swistblnk Moalang Melintang';
+  text-align: center;
+  padding: 3%;
+  font-size: 250%;
+}
+
+#bg{
+  position:relative;
+  top:5px;
+  height:600px;
+  width:800px;
+  background:url('https://i.imgur.com/3eP9Z4O.png') center no-repeat;
+  background-size:cover;
+  margin-left:auto;
+  margin-right:auto; 
+  border:#fff 15px solid;
+  border-radius: 3%;
+}
+
+
+body{
+  
+  background-color:#f0f0f0;
+  font-family:helvetica;
+}
+
+.datosPersona{
+  position:relative;
+  top:5px;    
+  height:80%;
+  width:450px;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius:5px;
+  background:RGBA(255,255,255,1);
+    
+  -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);        
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+ 
+}  
+
+form{
+  float:left;
+  height:80%;
+  width:50%;
+  box-sizing:border-box;
+  padding:40px 1px;
+  margin-left: 10%;
+  margin-right: 10%;
+  
+}
+
+
+.textBox{
+  height:50px;
+  width: 160%;
+  border-radius:3px;
+  border: none;
+  margin-top: 5px;
+  box-sizing:border-box;
+  margin-bottom:15px;
+  text-align: center;
+  display: block;
+  margin-right: 200%;
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+}
+
+
+.buttonform{
+  height:50px;
+  width:160%;
+  border-radius:3px;
+  size: 30px;
+  border:rgba(0,0,0,.3) 0px solid;
+  box-sizing:border-box;
+  background:#55aca0;
+  color:rgb(136, 36, 83);
+  font-weight:bold;
+  font-size: 12pt;
+  cursor:pointer;
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+}
+
+button:hover{
+  background:#d4a4ce;
+  
+}
+
+label{
+  font-family: 'Swistblnk Moalang Melintang';
+  margin-left: 70%;
+  font-size: 200%;
+}
+
+img{
+ display: block;
+ margin: auto;
+}

@@ -1,0 +1,44 @@
+<mat-card>
+
+<div class="container" >
+    <h1>Listado de Cursos</h1>
+
+
+    <button mat-raised-button color="primary" [routerLink]="'/curso-component/new'">Crear Curso</button>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre Curso </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre | titlecase}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="profesor">
+            <th mat-header-cell *matHeaderCellDef> Profesor </th>
+            <td mat-cell *matCellDef="let element"> {{element.profesor | titlecase}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="anio">
+            <th mat-header-cell *matHeaderCellDef> Año </th>
+            <td mat-cell *matCellDef="let element"> {{element.anio}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado de Noticia </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef> Editar Curso </th>
+            <td mat-cell *matCellDef="let element">
+                <button type="button" (click)="editar(element)" mat-flat-button color="accent">Editar</button> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+        
+
+    </table>
+
+</div>
+</mat-card>

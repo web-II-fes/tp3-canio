@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+
+table{
+    margin: 1em 25em;
+ }
+table th, td {
+    text-align: center;
+    padding: 1em;
+}
+
+table td {
+    text-align: center;
+    caption-side: top;
+}
+
+table {
+    width: 50%;
+    text-align: center
+  }
+
+    

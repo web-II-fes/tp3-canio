@@ -28,4 +28,8 @@ export class PersonaService{
         return this.httpClient.delete(this.personaUrl + 'persona/' + idPersona, this.httpOptions);
     }
 
+    getPersonaById(idPersona: string) {
+		return this.httpClient.get(this.personaUrl + 'personaId/' + idPersona);
+	}
+
 }
