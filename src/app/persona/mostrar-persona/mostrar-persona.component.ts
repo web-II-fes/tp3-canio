@@ -10,7 +10,7 @@ import { Persona } from '../Persona';
   styleUrls: ['./mostrar-persona.component.css']
 })
 export class MostrarPersonaComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'apellido', 'edad', 'borrar'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'edad', 'borrar', 'editar'];
   dataSource : any[] = [];
   idPersona: any;
   personaForm: FormGroup;
@@ -37,15 +37,10 @@ export class MostrarPersonaComponent implements OnInit {
     this.ngOnInit();
   }
 
-  editarPersona(persona: any) {	
-    this.idPersona = persona._id;
-    let personaTemp : Persona = {
-      nombre : persona.nombre,
-      apellido : persona.apellido,
-      edad : persona.edad
-    };
+  editarPersona(idPersona) {
 
-    this.router.navigate(['/persona/crearPersona', persona]);
+    this.router.navigate(['/persona/crearPersona/' + idPersona]);
+    
     debugger;	
   }
 

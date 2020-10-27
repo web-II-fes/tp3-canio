@@ -4,7 +4,7 @@
     <h1>Listado de Cursos</h1>
 
 
-    <button mat-raised-button color="primary" [routerLink]="'/curso-component/new'">Crear Curso</button>
+    <button mat-raised-button color="primary" [routerLink]="'/crearCurso'">Crear Curso</button>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             
@@ -24,14 +24,20 @@
         </ng-container>
 
         <ng-container matColumnDef="estado">
-            <th mat-header-cell *matHeaderCellDef> Estado de Noticia </th>
+            <th mat-header-cell *matHeaderCellDef> Estado de Curso </th>
             <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
         </ng-container>
 
         <ng-container matColumnDef="editar">
-            <th mat-header-cell *matHeaderCellDef> Editar Curso </th>
-            <td mat-cell *matCellDef="let element">
-                <button type="button" (click)="editar(element)" mat-flat-button color="accent">Editar</button> </td>
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let curso">
+                <button type="button" (click)="editar(curso._id)" mat-flat-button color="accent">Editar</button> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="borrar">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let curso">
+                <button type="button" (click)="borrar(curso)" mat-flat-button color="accent">Borrar</button> </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

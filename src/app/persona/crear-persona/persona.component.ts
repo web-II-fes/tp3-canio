@@ -21,7 +21,7 @@ export class PersonaComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private personaService: PersonaService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     
     this.getPersona();
     this.param = this.route.snapshot.params;
@@ -60,17 +60,7 @@ export class PersonaComponent implements OnInit {
     });
   }
 
-
-  // editarPersona(persona: any){
-  //   this.idPersona = persona._id;
-  //   this.personaForm.patchValue({
-  //     nombre: persona.nombre,
-  //     apellido: persona.apellido,
-  //     edad: persona.edad
-  //   });
-  // }
-
-  getPersonaById(idPersona: any) {
+  getPersonaById(idPersona: String) {
 		this.personaService.getPersonaById(idPersona).subscribe((data) => {
 			debugger;
 			let personaId = data;
@@ -79,17 +69,18 @@ export class PersonaComponent implements OnInit {
 		});
 	}
   
-  enviar(){
-    // debugger;
-    // if (this.idPersona){
-    //   this.personaService.editarPersona(this.idPersona, this.personaForm.value).subscribe((persona) => {
-    //     console.log("Persona editada: ", persona);
-    //   });
-    // } else{
+  submit(){
+    debugger;
+    if (this.idPersona){
+      this.personaService.editarPersona(this.idPersona, this.personaForm.value).subscribe((persona) => {
+        // console.log("Persona editada: ", persona);
+      });
+    } else{
       this.personaService.guardarPersona(this.personaForm.value).subscribe(persona => {
         console.log("Persona Nueva: ", persona);
+        // let personaNueva = persona;
       });
-    // }
+    }
 
     this.router.navigate(['/persona/mostrarPersona']);
     

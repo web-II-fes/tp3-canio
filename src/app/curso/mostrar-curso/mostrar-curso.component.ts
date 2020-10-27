@@ -10,7 +10,7 @@ import { Curso } from './../curso';
   styleUrls: ['./mostrar-curso.component.css']
 })
 export class MostrarCursoComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'profesor', 'anio', 'estado', 'editar'];
+  displayedColumns: string[] = ['nombre', 'profesor', 'anio', 'estado', 'editar', 'borrar'];
   dataSource : any[] = [];
 
   idCurso: string;
@@ -28,23 +28,23 @@ export class MostrarCursoComponent implements OnInit {
     });
   }
 
-  editar(element){
-    let cursoTemp : Curso = {
-      nombre: element.nombre,
-      profesor: element.profesor,
-      anio: element.anio,
-      estado: element.estado
-    }
+  editar(idCurso){
+   
+    this.router.navigate(['/crearCurso/' + idCurso]);
+    
+    debugger;	
 
-    this.router.navigate(['/curso-component', element]);
   }
 
-  borrarCurso(curso: any){
+  borrar(curso: any){
     debugger;
     this.idCurso = curso._id;
     this.cursoService.borrarCurso(this.idCurso).subscribe( respuesta  => {
       console.log("Curso borrado: ", curso)
     });
+
+    location.reload();
+
   }
 
 }

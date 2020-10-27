@@ -16,9 +16,9 @@ export class CursoService{
         return this.httpClient.get(this.cursoUrl + 'curso');
     }
 
-    // getCursoById(idCurso: string){
-    //     return this.httpClient.get(this.cursoUrl + 'cursoId' + idCurso);
-    // }
+    getCursoById(idCurso: String){
+        return this.httpClient.get(this.cursoUrl + 'cursoId/' + idCurso);
+    }
 
     guardarCurso(curso: any){
         return this.httpClient.post(this.cursoUrl + 'curso', JSON.stringify(curso), this.httpOptions); 

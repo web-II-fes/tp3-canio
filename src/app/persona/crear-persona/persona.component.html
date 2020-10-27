@@ -3,7 +3,7 @@
 
     <div class="datosPersona">
                 
-        <form [formGroup]='personaForm'>
+        <form [formGroup]='personaForm' (ngSubmit)=submit()>
 
             <div id="margenes">
                 <mat-form-field appearance="fill">
@@ -24,8 +24,8 @@
            </div>
 
             <div class="enviar">
-                <!-- <button type="submit" mat-raised-button class="buttonform">Guardar</button> -->
-                <button mat-raised-button (click)="enviar()">Enviar</button>
+                <button mat-raised-button class="buttonform">Guardar</button>
+                <!-- <button mat-raised-button (click)="enviar()" class="buttonform">Enviar</button> -->
             </div>
         </form>
        

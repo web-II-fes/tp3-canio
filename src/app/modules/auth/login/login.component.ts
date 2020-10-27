@@ -11,13 +11,12 @@ import {MostrarPersonaComponent} from './../../../persona/mostrar-persona/mostra
 	styleUrls: [ './login.component.css' ]
 })
 export class LoginComponent implements OnInit {
-	form: any = {};
+	
 	isLoggedIn = false;
 	isLoginFailed = false;
 	errorMessage = '';
 	roles: string[] = [];
 
-	//recién agregado
 	itemForm: FormGroup;
 
 
@@ -27,20 +26,20 @@ export class LoginComponent implements OnInit {
 		if (this.tokenStorage.getToken()) {
 			this.isLoggedIn = true;
 		}
-		// this.iniciarFormulario();		 
+		this.initForm();		 
 	}
 
 
 	//recién agregado
-	// iniciarFormulario() {
-	// 	this.itemForm = this.fb.group({
-	// 	  username: [''],
-	// 	  password: ['']
-	// 	});
-	//   }
+	initForm() {
+		this.itemForm = this.fb.group({
+			username: [''],
+			password: ['']
+		});
+	  }
 
-	onSubmit(): void {
-		this.authService.login(this.form).subscribe(
+	submit() {
+		this.authService.login(this.itemForm.value).subscribe(
 			(data) => {
 				debugger;
 				this.tokenStorage.saveToken(data.token);

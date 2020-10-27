@@ -6,25 +6,16 @@
 
         <img id="profile-img" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b773941b-caf9-47a6-b35f-00ad72e8fbc3/d6crdga-393f357a-80a4-4f29-9de6-18504c237c12.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvYjc3Mzk0MWItY2FmOS00N2E2LWIzNWYtMDBhZDcyZThmYmMzXC9kNmNyZGdhLTM5M2YzNTdhLTgwYTQtNGYyOS05ZGU2LTE4NTA0YzIzN2MxMi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.8wudxfp7eMS-KRTzocJcbRGsjCOm66wAkLquNPU5uBo" class="profile-img-card" />
 
-        <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <form  name="itemForm" (ngSubmit)=submit()>
 
             <div class="form-group">
-                <label for="username">Usuario </label>
-                    <input type="text" class="form-control" name="username" class="textBox" [(ngModel)]="form.username" required #username="ngModel"  />
-                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid">
-                        Username is required!
-                    </div>
+                <label>Usuario </label>
+                    <input type="text" class="form-control" name="username" class="textBox"/>
             </div>
 
         <div class="form-group">
             <label for="password">Password </label>
-                <input type="password" class="form-control" name="password"  class="textBox" [(ngModel)]="form.password" required #password="ngModel" />
-                <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
-                    <!-- <div *ngIf="password.errors.required">Password is required</div> -->
-                    <!-- <div *ngIf="password.errors.minlength">
-                        Password must be at least 6 characters
-                    </div> -->
-                </div>
+                <input type="password" class="form-control" name="password"  class="textBox"/>
             
         </div>
             <div class="form-group">
@@ -33,17 +24,7 @@
                 </button>
             </div>
 
-            <div class="form-group">
-                <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
-                    <p>Entrada Fallida: {{ errorMessage }}</p>
-                </div>
-            </div>
-
         </form>
-
-        <div class="alert alert-success" *ngIf="isLoggedIn">
-            <p>Entrando como {{ roles }}.</p> 
-         </div>
 
     </div>
     

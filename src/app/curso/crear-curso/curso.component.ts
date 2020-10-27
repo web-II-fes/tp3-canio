@@ -17,35 +17,38 @@ export class CursoComponent implements OnInit {
   cursos: any[] = [];
   idCurso: string;
 
-  constructor(private fb: FormBuilder, private cursoService : CursoService, private paramRoute : ActivatedRoute, private router : Router) { }
+  param: any;
+  curso: any;
+
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private cursoService : CursoService, private paramRoute : ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
-    this.initForm();
-
-    this.paramRoute.paramMap.subscribe((param) => {
-      debugger;
-      this.idCurso = param.get('id');
-
-      // if (this.idCurso !== 'new'){
-      //   this.getCursoById(this.idCurso);
-      // }
-      if (this.idCurso === 'new'){
-        this.initForm();
-      }
-    });
-
-    this.initForm();
-
     this.getCurso();
+    this.param = this.route.snapshot.params;
+
+    if (Object.keys(this.param).length) {
+      this.curso = this.param;
+    } 
+
+    this.initForm(this.curso);
+
+    this.route.paramMap.subscribe((param) => {
+			debugger;
+			this.idCurso = param.get('id');
+
+			if (this.idCurso !== 'new') {
+				this.getCursoById(this.idCurso);
+			}
+    });
   }
 
 
-  initForm(){
+  initForm(editarCurso : Curso){
     this.cursoForm = this.fb.group({
-      nombre : ['', Validators.required],
-      profesor : ['', Validators.required],
-      anio : [''],
-      estado : ['']
+      nombre : [editarCurso ? editarCurso.nombre:'', Validators.required],
+      profesor : [editarCurso ? editarCurso.profesor:'', Validators.required],
+      anio : [editarCurso ? editarCurso.anio:''],
+      estado : [editarCurso ? editarCurso.estado:'']
     
     });
   }
@@ -55,35 +58,32 @@ export class CursoComponent implements OnInit {
       this.cursos = cursos;
     });
   }
-  editarCurso(curso: any){
-    this.idCurso = curso._id;
-    this.cursoForm.patchValue({
-      nombre: curso.nombre,
-      profesor: curso.profesor,
-      anio: curso.anio,
-      estado: curso.estado
-    });
-  }
 
-  borrarCurso(curso: any){
-    debugger;
-    this.idCurso = curso._id;
-    this.cursoService.borrarCurso(this.idCurso).subscribe( respuesta  => {
-      console.log("Curso borrado: ", curso)
-    });
-  }
+  getCursoById(idCurso: String) {
+		this.cursoService.getCursoById(idCurso).subscribe((data) => {
+			debugger;
+			let cursoId = data;
+
+			this.cursoForm.patchValue(cursoId);
+		});
+	}
+
   
   submit(){
     debugger;
-    // if (this.idCurso){
-    //   this.cursoService.editarCurso(this.idCurso, this.cursoForm.value).subscribe(curso => {
-    //     console.log("Curso editado: ", curso);
-    //   });
-    // } else{
-      this.cursoService.guardarCurso(this.cursoForm.value).subscribe(curso => {
-        console.log("Nuevo Curso: ", curso);
+    if (this.idCurso){
+      this.cursoService.editarCurso(this.idCurso, this.cursoForm.value).subscribe((curso) => {
+        // console.log("Persona editada: ", persona);
       });
-      this.router.navigate(['/mostrar-curso-component']);
+    } else{
+      this.cursoService.guardarCurso(this.cursoForm.value).subscribe(curso => {
+        console.log("Curso Nuevo: ", curso);
+        // let personaNueva = persona;
+      });
     }
+
+    this.router.navigate(['/mostrarCurso']);
+    
+  };
 
 }

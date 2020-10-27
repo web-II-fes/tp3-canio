@@ -16,7 +16,11 @@ const routes: Routes = [
         {
             path: 'crearPersona',
             component: PersonaComponent
-        }
+        },
+        {
+            path: 'crearPersona/:id',
+            component: PersonaComponent
+        },
     ]
     }
   ];
